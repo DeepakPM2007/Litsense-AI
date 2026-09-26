@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LitSense AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">LitSense AI</div>
+        <div class="nav-link active" data-target="semantic-view">Semantic Search</div>
+        <div class="nav-link" data-target="pathway-view">Learning Pathway</div>
+        <div class="nav-link" data-target="chat-view">Book Sommelier</div>
+    </aside>
+
+    <main class="main-content">
+        <!-- Semantic Search View -->
+        <section id="semantic-view" class="view-section active">
+            <h2>Semantic Search</h2>
+            <div class="search-bar">
+                <input type="text" id="semantic-input" placeholder="Describe the vibe or topic of the book...">
+                <button id="semantic-btn">Search</button>
+            </div>
+            <div id="semantic-loading" style="display: none;">Searching the database...</div>
+            <div id="semantic-explanation" class="ai-explanation" style="display: none;"></div>
+            <div id="semantic-results" class="books-grid"></div>
+        </section>
+
+        <!-- Learning Pathway View -->
+        <section id="pathway-view" class="view-section">
+            <h2>Learning Pathway Generator</h2>
+            <div class="search-bar">
+                <input type="text" id="pathway-input" placeholder="What topic do you want to learn?">
+                <button id="pathway-btn">Generate Curriculum</button>
+            </div>
+            <div id="pathway-loading" style="display: none;">Structuring curriculum...</div>
+            <div id="pathway-explanation" class="ai-explanation" style="display: none;"></div>
+            <div id="pathway-results" class="books-grid"></div>
+        </section>
+
+        <!-- Chat View -->
+        <section id="chat-view" class="view-section">
+            <h2>Book Sommelier</h2>
+            <div class="chat-window">
+                <div id="chat-history" class="chat-history">
+                    <div class="chat-msg assistant">Hello. I am the LitSense AI Sommelier. Tell me about a book you enjoyed, or a topic you wish to explore.</div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="chat-input" placeholder="Type your message...">
+                    <button id="chat-btn">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

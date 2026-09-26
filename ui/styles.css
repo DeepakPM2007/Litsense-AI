@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --primary: #000000;
+  --primary-hover: #333333;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F4F4F5;
+  --secondary-foreground: #18181B;
+  --background: #FFFFFF;
+  --foreground: #09090B;
+  --muted: #F4F4F5;
+  --accent: #F4F4F5;
+  --border-radius: 0.5rem;
+  --border-radius-sm: 0.25rem;
+  --spacing: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing) * 4);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: calc(var(--spacing) * 6);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 4);
+  border-right: 1px solid #e4e4e7;
+}
+
+.brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing) * 8);
+}
+
+.nav-link {
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #e4e4e7;
+}
+
+.nav-link.active {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: calc(var(--spacing) * 10);
+  overflow-y: auto;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* Forms & Inputs */
+.search-bar {
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+  margin-bottom: calc(var(--spacing) * 6);
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+  border: 1px solid #e4e4e7;
+  border-radius: var(--border-radius);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 6);
+  border-radius: var(--border-radius);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Books Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: calc(var(--spacing) * 6);
+  margin-top: calc(var(--spacing) * 6);
+}
+
+.book-card {
+  background-color: var(--background);
+  border: 1px solid #e4e4e7;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.book-info {
+  padding: calc(var(--spacing) * 4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-size: 1.1rem;
+  margin-bottom: calc(var(--spacing) * 1);
+}
+
+.book-author {
+  font-size: 0.9rem;
+  color: #71717a;
+  margin-bottom: calc(var(--spacing) * 3);
+}
+
+.book-desc {
+  font-size: 0.85rem;
+  color: #3f3f46;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.ai-explanation {
+  background-color: var(--muted);
+  padding: calc(var(--spacing) * 4);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--spacing) * 6);
+  border-left: 4px solid var(--primary);
+}
+
+/* Chat UI */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+}
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: calc(var(--spacing) * 4);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 4);
+}
+.chat-msg {
+  max-width: 80%;
+  padding: calc(var(--spacing) * 4);
+  border-radius: var(--border-radius);
+}
+.chat-msg.user {
+  align-self: flex-end;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+.chat-msg.assistant {
+  align-self: flex-start;
+  background-color: var(--muted);
+  color: var(--foreground);
+}
